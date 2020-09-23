@@ -1,0 +1,32 @@
+<h1>Employee Details</h1>
+<p>This page will display create, insert, update and delete operation for employee.</p>
+
+<div *ngIf="!employeeDetails">
+  Loading....
+</div>
+
+<div>
+  <button type="button" [routerLink]="['/create-employee']">New Employee</button>
+</div>
+
+<div *ngIf="employeeDetails">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>EmpAddress</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employeeDetails">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName}}</td>
+        <td>{{emp.empAddress}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

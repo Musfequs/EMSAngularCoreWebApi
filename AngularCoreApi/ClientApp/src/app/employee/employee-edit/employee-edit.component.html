@@ -1,0 +1,31 @@
+<div>
+  <h1>New Employee</h1>
+  <form [formGroup]="employeeaddform" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label>Employee Id: </label>
+      <input type="text" formControlName="empId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.empId.errors }" />
+      <div *ngIf="submitted && f.empId.errors" class="invalid-feedback">
+        <div *ngIf="f.empId.errors.required">Employee Id is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Employee Name: </label>
+      <input type="text" formControlName="empName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.empName.errors }" />
+      <div *ngIf="submitted && f.empName.errors" class="invalid-feedback">
+        <div *ngIf="f.empName.errors.required">Employee name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Employee Address: </label>
+      <input type="text" formControlName="empAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.empAddress.errors }" />
+      <div *ngIf="submitted && f.empAddress.errors" class="invalid-feedback">
+        <div *ngIf="f.empAddress.errors.required">Employee address is required</div>
+      </div>
+    </div>
+    <button type="submit">Save</button>
+    <button type="reset" (click)="onReset()">Cancel</button>
+
+  </form>
+
+
+</div>
