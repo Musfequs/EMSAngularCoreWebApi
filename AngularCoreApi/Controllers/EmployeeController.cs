@@ -55,6 +55,9 @@ namespace AngularCoreApi.Controllers
         {
             try
             {
+                if (employeeDetails == null)
+                    return StatusCode(204, "EmployeeDetails is null.");
+
                 var empDetails = mapper.Map<DAccessModel.EmployeeDetails>(employeeDetails);
                 var result = employeeDataService.AddEmployee(empDetails);
                 return new JsonResult(result);
