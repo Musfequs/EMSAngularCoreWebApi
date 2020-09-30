@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using APiModel = AngularCoreApi.Model;
 using DAccessModel = DataAccess.Model;
 using AutoMapper;
 using DataAccess.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace AngularCoreApi.Controllers
 {
@@ -18,12 +16,14 @@ namespace AngularCoreApi.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IConfiguration configuration;
+        private readonly ILogger<EmployeeController> logger;
         private readonly IEmployeeDataService employeeDataService;
         private readonly IMapper mapper;  
 
-        public EmployeeController(IConfiguration config, IEmployeeDataService empDataService, IMapper autoMapper)
+        public EmployeeController(ILogger<EmployeeController> log, IConfiguration config, IEmployeeDataService empDataService, IMapper autoMapper)
         {
             configuration = config;
+            logger = log;
             employeeDataService = empDataService;
             mapper = autoMapper;
         }
@@ -32,6 +32,7 @@ namespace AngularCoreApi.Controllers
         [Route("api/v1/GetAllEmployees")]
         public IActionResult GetAllEmployees()
         {
+            logger.LogInformation("Start GetAllEmployees().");
             try
             {
                 var empDetails = employeeDataService.GetAllEmployeeDetails();
@@ -43,9 +44,14 @@ namespace AngularCoreApi.Controllers
 
                 return new JsonResult(apiEmpDetails);
             }
-            catch 
+            catch(Exception ex) 
             {
+                logger.LogInformation("Exception occurs in GetAllEmployees(), Details: "+ ex.Message);
                 return StatusCode(500, "Error Occurred");
+            }
+            finally 
+            {
+                logger.LogInformation("End GetAllEmployees().");
             }
         }
 
@@ -53,6 +59,7 @@ namespace AngularCoreApi.Controllers
         [Route("api/v1/CreateEmployee")]
         public IActionResult CreateEmployee([FromBody] APiModel.EmployeeDetails employeeDetails)
         {
+            logger.LogInformation("Start CreateEmployee().");
             try
             {
                 if (employeeDetails == null)
@@ -62,9 +69,14 @@ namespace AngularCoreApi.Controllers
                 var result = employeeDataService.AddEmployee(empDetails);
                 return new JsonResult(result);
             }
-            catch
+            catch(Exception ex)
             {
+                logger.LogInformation("Exception occurs in CreateEmployee(), Details: " + ex.Message);
                 return StatusCode(500, "Error Occurred");
+            }
+            finally
+            {
+                logger.LogInformation("End CreateEmployee().");
             }
         }
     }
