@@ -51,12 +51,12 @@ namespace DataAccess
 
             try
             {
-                using (IDbConnection con = new SqlConnection(ConnectionString))
+                using (IDbConnection dbConnection = new SqlConnection(ConnectionString))
                 {
-                    if (con.State == ConnectionState.Closed)
-                        con.Open();
+                    if (dbConnection.State == ConnectionState.Closed)
+                        dbConnection.Open();
 
-                    var data = con.Query<EmployeeDetails>("GetAllEmployees", commandType: CommandType.StoredProcedure);
+                    var data = dbConnection.Query<EmployeeDetails>("GetAllEmployees", commandType: CommandType.StoredProcedure);
 
                     if (data != null && data.Any())
                         empDetails = data.ToList();
@@ -72,7 +72,6 @@ namespace DataAccess
                 logger.LogInformation("End EmployeeDataService.GetAllEmployeeDetails().");
             }
 
-            
             return empDetails;
         }
 

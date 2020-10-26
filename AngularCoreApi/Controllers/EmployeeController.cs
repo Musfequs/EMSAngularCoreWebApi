@@ -15,14 +15,12 @@ namespace AngularCoreApi.Controllers
     [Route("[controller]")]
     public class EmployeeController : ControllerBase
     {
-        private readonly IConfiguration configuration;
         private readonly ILogger<EmployeeController> logger;
         private readonly IEmployeeDataService employeeDataService;
         private readonly IMapper mapper;  
 
-        public EmployeeController(ILogger<EmployeeController> log, IConfiguration config, IEmployeeDataService empDataService, IMapper autoMapper)
+        public EmployeeController(ILogger<EmployeeController> log, IEmployeeDataService empDataService, IMapper autoMapper)
         {
-            configuration = config;
             logger = log;
             employeeDataService = empDataService;
             mapper = autoMapper;

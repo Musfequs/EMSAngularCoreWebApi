@@ -7,13 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularCoreApi", "AngularCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BF3C67BD-8E53-4B4D-95CF-3BDDDA4393BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Interface", "DataAccess.Interface\DataAccess.Interface.csproj", "{A73441DC-070B-405B-A935-90D2259D000B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Interface", "DataAccess.Interface\DataAccess.Interface.csproj", "{A73441DC-070B-405B-A935-90D2259D000B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Model", "DataAccess.Model\DataAccess.Model.csproj", "{FFAFCFAF-1BFD-4F0C-A39A-5A4EABFD2075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Model", "DataAccess.Model\DataAccess.Model.csproj", "{FFAFCFAF-1BFD-4F0C-A39A-5A4EABFD2075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapperProfiles", "MapperProfiles\MapperProfiles.csproj", "{52862B54-82A9-446D-84FE-AE3D615213A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapperProfiles", "MapperProfiles\MapperProfiles.csproj", "{52862B54-82A9-446D-84FE-AE3D615213A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularCoreApi.Model", "AngularCoreApi.Model\AngularCoreApi.Model.csproj", "{6E5E80CA-7C52-45C7-8223-03BE78581691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularCoreApi.Model", "AngularCoreApi.Model\AngularCoreApi.Model.csproj", "{6E5E80CA-7C52-45C7-8223-03BE78581691}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9E1EEAB0-BDAA-423F-8259-3E22FB88D48B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ControllerTest", "ControllerTest", "{E028FD00-B3F2-4805-B2D3-261B9F04E0D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessTest", "DataAccessTest", "{4A8B57D4-316C-4696-BA0F-B5F217352484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerXUnitTest", "ControllerXUnitTest\ControllerXUnitTest.csproj", "{D49FEB37-06F8-4CE3-AE9B-EFEE4B28FCB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessXUnitTest", "DataAccessXUnitTest\DataAccessXUnitTest.csproj", "{EAA685C0-FEC4-41A9-B76E-AB2BC980513A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +55,23 @@ Global
 		{6E5E80CA-7C52-45C7-8223-03BE78581691}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E5E80CA-7C52-45C7-8223-03BE78581691}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E5E80CA-7C52-45C7-8223-03BE78581691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D49FEB37-06F8-4CE3-AE9B-EFEE4B28FCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49FEB37-06F8-4CE3-AE9B-EFEE4B28FCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49FEB37-06F8-4CE3-AE9B-EFEE4B28FCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49FEB37-06F8-4CE3-AE9B-EFEE4B28FCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA685C0-FEC4-41A9-B76E-AB2BC980513A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA685C0-FEC4-41A9-B76E-AB2BC980513A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA685C0-FEC4-41A9-B76E-AB2BC980513A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA685C0-FEC4-41A9-B76E-AB2BC980513A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E028FD00-B3F2-4805-B2D3-261B9F04E0D1} = {9E1EEAB0-BDAA-423F-8259-3E22FB88D48B}
+		{4A8B57D4-316C-4696-BA0F-B5F217352484} = {9E1EEAB0-BDAA-423F-8259-3E22FB88D48B}
+		{D49FEB37-06F8-4CE3-AE9B-EFEE4B28FCB7} = {E028FD00-B3F2-4805-B2D3-261B9F04E0D1}
+		{EAA685C0-FEC4-41A9-B76E-AB2BC980513A} = {4A8B57D4-316C-4696-BA0F-B5F217352484}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B2A7BDD-C911-4009-A5E8-31BF27982F02}
