@@ -40,7 +40,7 @@ namespace AngularCoreApi.Controllers
 
                 var apiEmpDetails = mapper.Map<List<APiModel.EmployeeDetails>>(empDetails);
 
-                return new JsonResult(apiEmpDetails);
+                return Ok(new JsonResult(apiEmpDetails));
             }
             catch(Exception ex) 
             {
